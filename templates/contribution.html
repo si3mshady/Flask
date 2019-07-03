@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for alert in get_flashed_messages() %}
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+   <button type="button" class="fade close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+   </button>
+        {{alert}}
+    </div>
+
+    {% endfor %}
+
+
+<div class="jumbotron">
+<form  method="POST">
+
+     {{form.hidden_tag()}}
+
+     <div class="form-group">
+     {{form.item.label}} {{form.item()}}
+         </div>
+     <div class="form-group">
+     {{form.quantity.label}} {{form.quantity()}}
+         </div>
+     <div class="form-group">
+     {{form.username.label}}  {{form.username()}}
+         </div>
+     <div class="form-group">
+     {{form.submit()}}
+     </div>
+
+</form>
+</div>
+
+{% endblock %}

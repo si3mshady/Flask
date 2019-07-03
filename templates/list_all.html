@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+{% if not items_dict %}
+<h1> There are no contributions at this time! </h1>
+{% endif %}
+
+{% if items_dict %}
+<h1> Contributions so far </h1>
+{% for key,val in items_dict.items() %}
+
+<ul>
+    <li> {{key}} {{val}}</li>
+</ul>
+{% endfor %}
+{% endif %}
+
+</div>
+{% endblock %}

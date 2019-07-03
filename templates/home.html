@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Family Reunion Registration &</h1>
+    <h1>Contribution Page</h1>
+    <br>
+    <h6>Si3mShady - EA</h6>
+
+     {% for alert in get_flashed_messages() %}
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <button type="button" class="fade close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+        {{alert}}
+    </div>
+    {% endfor %}
+
+
+</div>
+{% if session['logged_in'] %}
+<div class="jumbotron">
+ <form action="{{url_for('charge')}}" method="POST">
+
+    <script
+            src="https://checkout.stripe.com/checkout.js"
+            class="stripe-button"
+            data-key="{{pk}}"
+            data-description=""
+            data-amount="5000"
+            data-locale="auto"></script>
+  </form>
+
+
+
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1>Time to register</h1>
+    <br>
+
+    {% for alert in get_flashed_messages() %}
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <button type="button" class="fade close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+        {{alert}}
+    </div>
+
+    {% endfor %}
+
+ </div>
+    <div class="jumbotron">
+<form method="POST">
+
+     {{form.hidden_tag()}}
+
+     <div class="form-group">
+     {{form.firstname.label}} {{form.firstname()}}
+         </div>
+     <div class="form-group">
+     {{form.lastname.label}} {{form.lastname()}}
+         </div>
+     <div class="form-group">
+     {{form.username.label}}  {{form.username()}}
+         </div>
+     <div class="form-group">
+     {{form.password.label}}  {{form.password()}}
+         </div>
+     <div class="form-group">
+     {{form.confirm_password.label}}   {{form.confirm_password()}}
+         </div>
+     <div class="form-group">
+     {{form.submit()}}
+     </div>
+
+</form>
+         </div>
+
+
+
+
+
+{% endblock %}
